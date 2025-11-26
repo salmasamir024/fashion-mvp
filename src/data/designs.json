@@ -11,7 +11,7 @@
         "name": "Camel",
         "hex": "#c9986e",
         "skinTones": ["tone1", "tone3"],
-        "image": "/image/Hourglass/Dress Formal Camel.jpg",
+        "image": "public/image/Hourglass/Dress Formal Camel.jpg",
         "availableSizes": [
           {
             "size": "S",
