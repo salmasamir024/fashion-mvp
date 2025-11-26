@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import useUserLocation from "../hooks/useUserLocation";
 import { Sparkle, Scissors, ShoppingBag } from "lucide-react";
 import ThemeToggle from "../components/ui/ThemeToggle"; // إضافة زر التبديل
-import logo from "../../assets/images/Neferet.png";
+import logo from "../assets/images/Neferet.png";
 
 
 export default function Home() {
@@ -48,7 +48,7 @@ export default function Home() {
           {/* Right Image */}
           <div className="relative">
             <img
-              src:logo
+              src={logo}
               className="rounded-3xl shadow-2xl shadow-var(--color-primary)/50 ring-1 ring-white/10"
               alt="Hero"
             />
