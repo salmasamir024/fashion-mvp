@@ -1,6 +1,7 @@
 import React from "react";
 import { RotateCcw, Info, Download } from "lucide-react";
 
+
 export default function BodyShapeResult({
   imageSrc,
   measurements = {}, // { shoulders, bust, waist, hips, height, weight }

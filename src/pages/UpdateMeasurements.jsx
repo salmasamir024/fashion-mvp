@@ -7,14 +7,18 @@ import BodyShapeResult from "../components/forms/BodyShapeResultPage";
 
 import Card from "../components/ui/Card";
 import Button from "../components/ui/Button";
+import Hourglass from "../assets/images/BodyMeasurment/Hourglass.png";
+import Pear from "../assets/images/BodyMeasurment/Pear.png";
+import Rectangle from "../assets/images/BodyMeasurment/Rectangle.png";
+import InvertedTriangle from "../assets/images/BodyMeasurment/Inverted Triangle.png";
 
 const shapeImages = {
-  hourglass: "/src/assets/images/BodyMeasurment/Hourglass.png",
-  pear: "/src/assets/images/BodyMeasurment/Pear.png",
-  rectangle: "/src/assets/images/BodyMeasurment/Rectangle.png",
-  invertedTriangle: "/src/assets/images/BodyMeasurment/Inverted Triangle.png",
-  apple: "/src/assets/images/BodyMeasurment/Apple.png",
+  hourglass: Hourglass,
+  pear: Pear,
+  rectangle: Rectangle,
+  invertedTriangle: InvertedTriangle,
 };
+
 
 export default function UpdateMeasurementsPage() {
   const navigate = useNavigate();
