@@ -1,0 +1,90 @@
+:root[data-theme="light"] {
+  /* Brand Colors */
+  --color-primary: #6c8dff;
+  --color-primary-light: #dfe8ff;
+  --color-secondary: #b9a5ff;
+  --color-accent: #9ac5ff;
+
+  /* Neutrals */
+  --color-bg: #f8faff;
+  --color-bg-soft: #ffffffcc;
+  --color-card: rgba(255, 255, 255, 0.55);
+  --color-text: #1a1a1a;
+  --color-text-light: #555;
+
+  /* Gradients */
+  --gradient-main: linear-gradient(
+    135deg,
+    #d9e6ff 0%,
+    #eadfff 100%
+  );
+
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-xl: 30px;
+
+  /* Shadows */
+  --shadow-soft: 0 10px 40px rgba(120, 150, 255, 0.15);
+  --shadow-card: 0 8px 25px rgba(0, 0, 0, 0.05);
+
+  /* Blur */
+  --blur-card: 18px;
+
+  /* Typography */
+  --font-main: "Inter", "Poppins", sans-serif;
+  --font-size-sm: 0.9rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.16rem;
+  --font-size-xl: 1.4rem;
+  --font-size-2xl: 2rem;
+}
+
+/* 🌙 Dark Theme */
+:root[data-theme="dark"] {
+  /* Brand Colors - Blue Royal */
+  --color-primary: #5aa7ff;          /* أزرق لامع مستخدم في الأزرار والعناوين */
+  --color-primary-light: #8ecaff;    /* أفتح لشادو أو هوفر */
+  --color-secondary: #2d6dff;        /* أزرق ملكي غامق */
+  --color-accent: #9ec8ff;           /* أزرق سماوي ناعم */
+
+  /* Gold accents from text */
+  --color-gold: #e8d59f;             /* درجات الكتابة الذهبية */
+
+  /* Neutrals – deep dark layers */
+  --color-bg: #08121f;               /* خلفية أساسية داكنة جدًا */
+  --color-bg-soft: #0f1b2d;          /* اللي ورا الكروت */
+  --color-card: rgba(18, 30, 49, 0.65); /* كارد شفاف غامق شبه اللي في الصورة */
+  --color-text: #f3f6ff;             /* لون الخط الرئيسي */
+  --color-text-light: #a3b3cc;       /* لون النصوص الثانوية */
+
+  /* Gradients – مستوحى من الخلفيات الزرقاء البنفسجية */
+  --gradient-main: linear-gradient(
+    135deg,
+    #0d1b2d 0%,
+    #123059 40%,
+    #1e3d7a 100%
+  );
+
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-xl: 30px;
+
+  /* Shadows – glowing blue style */
+  --shadow-soft: 0 10px 45px rgba(0, 115, 255, 0.18);
+  --shadow-card: 0 8px 25px rgba(0, 0, 0, 0.35);
+
+  /* Blur */
+  --blur-card: 18px;
+
+  /* Typography */
+  --font-main: "Inter", "Poppins", sans-serif;
+  --font-size-sm: 0.9rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.16rem;
+  --font-size-xl: 1.4rem;
+  --font-size-2xl: 2rem;
+}

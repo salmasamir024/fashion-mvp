@@ -1,0 +1,46 @@
+[
+  {
+    "id": "zara",
+    "name": "Zara",
+    "image": "/images/brands/zara.jpg",
+    "category": "Fast Fashion",
+    "collections": ["Spring 2025", "Summer 2025", "Autumn 2025"],
+    "shipping": "Worldwide",
+    "portfolio": [
+      "/images/brands/zara1.jpg",
+      "/images/brands/zara2.jpg",
+      "/images/brands/zara3.jpg"
+    ],
+    "reviews": [
+      {
+        "name": "Alice",
+        "rating": 4.5,
+        "comment": "Good quality and trendy designs!"
+      },
+      {
+        "name": "John",
+        "rating": 4.0,
+        "comment": "Fast shipping and reliable service."
+      }
+    ]
+  },
+  {
+    "id": "hm",
+    "name": "H&M",
+    "image": "/images/brands/hm.jpg",
+    "category": "Fast Fashion",
+    "collections": ["Summer 2025", "Autumn 2025"],
+    "shipping": "Worldwide",
+    "portfolio": [
+      "/images/brands/hm1.jpg",
+      "/images/brands/hm2.jpg"
+    ],
+    "reviews": [
+      {
+        "name": "Sara",
+        "rating": 4.2,
+        "comment": "Affordable and fashionable."
+      }
+    ]
+  }
+]

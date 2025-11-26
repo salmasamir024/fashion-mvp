@@ -1,0 +1,18 @@
+/* لازم يكون الأول */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap');
+@import "./styles/theme.css";
+
+/* بعدين الـ Tailwind directives */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* بعدين أي ستايلات تانية */
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+.font-serif {
+  font-family: 'Playfair Display', serif;
+}
+

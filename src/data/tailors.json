@@ -1,0 +1,32 @@
+[
+  {
+    "id": "tailor1",
+    "name": "Tailor A",
+    "occasions": ["Evening", "Formal"],
+    "startingPrice": 800,
+    "rating": 4.5,
+    "image": "/images/tailors/tailorA.jpg",
+    "location": { "lat": 30.05, "lng": 31.20 },
+    "experience": 8
+  },
+  {
+    "id": "tailor2",
+    "name": "Tailor B",
+    "occasions": ["Casual", "Party"],
+    "startingPrice": 300,
+    "rating": 4.0,
+    "image": "/images/tailors/tailorB.jpg",
+    "location": { "lat": 30.08, "lng": 31.70 },
+    "experience": 5
+  },
+  {
+    "id": "tailor3",
+    "name": "Tailor C",
+    "occasions": ["Evening", "Formal", "Party"],
+    "startingPrice": 1000,
+    "rating": 4.8,
+    "image": "/images/tailors/tailorC.jpg",
+    "location": { "lat": 30.07, "lng": 31.22 },
+    "experience": 10
+  }
+]

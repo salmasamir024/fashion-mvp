@@ -1,0 +1,166 @@
+[
+  {
+    "id": "design1",
+    "title": "Elegant Formal Dress",
+    "fabric": "Silk",
+    "suitableShapes": ["hourglass", "pear"],
+    "occasions": ["Evening", "Formal"],
+    "skinTones": ["tone2", "tone3"],
+    "availableColors": [
+      {
+        "name": "Camel",
+        "hex": "#c9986e",
+        "skinTones": ["tone1", "tone3"],
+        "image": "src/assets/images/Hourglass/Dress Formal Camel.jpg",
+        "availableSizes": [
+          {
+            "size": "S",
+            "price": 1200,
+            "stock": 2,
+            "sizeGuide": { "shoulder": 34, "waist": 64, "hips": 90, "length": 138 }
+          },
+          {
+            "size": "M",
+            "price": 1200,
+            "stock": 5,
+            "sizeGuide": { "shoulder": 36, "waist": 68, "hips": 94, "length": 140 }
+          }
+        ]
+      },
+      {
+        "name": "Burgundy",
+        "hex": "#800020",
+        "skinTones": ["tone1", "tone2"],
+        "image": "src/assets/images/Hourglass/Dress Formal Burgandy.jpg",
+        "availableSizes": [
+          {
+            "size": "M",
+            "price": 1250,
+            "stock": 3,
+            "sizeGuide": { "shoulder": 37, "waist": 70, "hips": 96, "length": 141 }
+          },
+          {
+            "size": "L",
+            "price": 1250,
+            "stock": 0,
+            "sizeGuide": { "shoulder": 39, "waist": 74, "hips": 100, "length": 143 }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "design2",
+    "title": "Elegant Evening Dress",
+    "fabric": "Cotton",
+    "suitableShapes": ["hourglass", "inverted"],
+    "occasions": ["Party", "Evening"],
+    "skinTones": ["tone1", "tone2", "tone4"],
+    "availableColors": [
+      {
+        "name": "White",
+        "hex": "#fff8f0",
+        "skinTones": ["tone1", "tone2"],
+        "image": "src/assets/images/Hourglass/Dress Evening White.jpg",
+        "availableSizes": [
+          {
+            "size": "M",
+            "price": 700,
+            "stock": 6,
+            "sizeGuide": { "shoulder": 38, "waist": 74, "hips": 98, "length": 88 }
+          },
+          {
+            "size": "L",
+            "price": 700,
+            "stock": 4,
+            "sizeGuide": { "shoulder": 40, "waist": 78, "hips": 102, "length": 90 }
+          }
+        ]
+      },
+      {
+        "name": "Sky Blue",
+        "hex": "#87CEEB",
+        "skinTones": ["tone1", "tone4"],
+        "image": "src/assets/images/Hourglass/Dress Evening White.jpg",
+        "availableSizes": [
+          {
+            "size": "L",
+            "price": 750,
+            "stock": 2,
+            "sizeGuide": { "shoulder": 39, "waist": 76, "hips": 100, "length": 89 }
+          },
+          {
+            "size": "XL",
+            "price": 750,
+            "stock": 1,
+            "sizeGuide": { "shoulder": 41, "waist": 82, "hips": 108, "length": 92 }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "design3",
+    "title": "Evening Gown XL",
+    "fabric": "Silk",
+    "suitableShapes": ["hourglass"],
+    "occasions": ["Evening", "Formal"],
+    "skinTones": ["tone2", "tone3"],
+    "availableColors": [
+      {
+        "name": "Powder Pink",
+        "hex": "#FFD1DC",
+        "skinTones": ["tone2", "tone3"],
+        "image": "src/assets/images/Hourglass/Dress Suit Formal powderpink.jpg",
+        "availableSizes": [
+          {
+            "size": "S",
+            "price": 1200,
+            "stock": 2,
+            "sizeGuide": { "shoulder": 34, "waist": 64, "hips": 90, "length": 138 }
+          },
+          {
+            "size": "M",
+            "price": 1200,
+            "stock": 5,
+            "sizeGuide": { "shoulder": 36, "waist": 68, "hips": 94, "length": 140 }
+          }
+        ]
+      },
+      {
+        "name": "Royal Blue",
+        "hex": "#4169E1",
+        "skinTones": ["tone2", "tone3"],
+        "image": "/images/design3-royalblue.jpg",
+        "availableSizes": [
+          {
+            "size": "L",
+            "price": 1500,
+            "stock": 2,
+            "sizeGuide": { "shoulder": 40, "waist": 80, "hips": 106, "length": 148 }
+          },
+          {
+            "size": "XL",
+            "price": 1500,
+            "stock": 3,
+            "sizeGuide": { "shoulder": 42, "waist": 84, "hips": 112, "length": 152 }
+          }
+        ]
+      },
+      {
+        "name": "Emerald Green",
+        "hex": "#50C878",
+        "skinTones": ["tone3"],
+        "image": "/images/design3-emerald.jpg",
+        "availableSizes": [
+          {
+            "size": "XL",
+            "price": 1550,
+            "stock": 1,
+            "sizeGuide": { "shoulder": 42, "waist": 86, "hips": 114, "length": 153 }
+          }
+        ]
+      }
+    ]
+  }
+]

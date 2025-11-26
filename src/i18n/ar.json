@@ -1,0 +1,93 @@
+{
+  "home": "الرئيسية",
+  "profile": "الملف الشخصي",
+  "login": "تسجيل الدخول",
+  "logout": "تسجيل الخروج",
+  "signup": "إنشاء حساب",
+  "cart": "عربة التسوق",
+  "recommendations": "الترشيحات",
+  "language": "عربي",
+  "hello": "مرحباً بك في نايفريت",
+
+  "noMeasurements": "لا توجد قياسات حتى الآن. أضيفي قياساتك للبداية.",
+  "addMeasurements": "إضافة قياسات",
+
+  "bodyMeasurements": "قياسات الجسم",
+  "height": "الطول",
+  "weight": "الوزن",
+  "shoulders": "الأكتاف",
+  "bust": "الصدر",
+  "waist": "الخصر",
+  "hips": "الورك",
+  "updateMeasurements": "تعديل القياسات",
+
+  "bodyProfile": "بيانات الجسم",
+  "skinTone": "لون البشرة",
+  "colorPalette": "لوحة الألوان",
+  "occasions": "المناسبات",
+
+  "recommendedSize": "المقاس الموصى به",
+
+  "favorites": "المفضلة",
+  "noFavorites": "لا توجد عناصر مفضلة بعد",
+
+  "orders": "الطلبات",
+  "inProgress": "قيد التنفيذ",
+  "completed": "مكتملة",
+
+  "userName": "اسم المستخدم",
+  "email": "البريد الإلكتروني",
+  "phone": "رقم الهاتف",
+
+  "editProfile": "تعديل الملف الشخصي",
+  "recommendedForYou": "مقترحات لك",
+
+  "filters": "فلاتر",
+  "veryLight": "فاتح جدًا",
+  "light": "فاتح",
+  "medium": "متوسط",
+  "olive": "زيتوني",
+  "brown": "بني",
+  "dark": "داكن",
+  "occasion": "المناسبة",
+  "formal": "رسمية",
+  "evening": "سهرة",
+  "wedding": "زفاف",
+  "conference": "مؤتمر",
+  "party": "حفلة",
+  "showRecommendations": "إظهار المقترحات",
+  "recommendedDesigns": "التصاميم الموصى بها",
+
+  "yourStylingProfile": "ملف التصفيف الخاص بك",
+  "shape": "الشكل",
+  "size": "المقاس",
+  "noDesignsMatch": "لا توجد تصاميم تتوافق مع معاييرك بعد.",
+  "tailorsForYou": "الخياطين المناسبين لك",
+  "noTailorsYet": "لا توجد توصيات بخياطين بعد — اختر مناسبة أعلاه.",
+
+
+  "chooseSizeColor": "اختر المقاس واللون أولاً!",
+  "quantityExceedsStock": "الكمية المطلوبة أكبر من المخزون المتوفر ({stock})",
+  "addedToCart": "تمت الإضافة: {{title}} - {{color}} - {{size}} - الكمية: {{quantity}} - السعر: {{price}} EGP",
+  "noDesignToShow": "لا يوجد تصميم لعرضه.",
+  "goBack": "العودة",
+  "fabric": "القماش",
+  "chooseColor": "اختاري اللون",
+  "noColorsForSkinTone": "لا توجد ألوان مناسبة لدرجة بشرتك",
+  "availableSizes": "المقاسات المتاحة",
+  "price": "السعر",
+  "remainingStock": "الكمية المتبقية",
+  "quantity": "الكمية",
+  "sizeGuide": "دليل المقاسات",
+  "shoulder": "الكتف",
+  "length": "الطول",
+  "addToCart": "إضافة للسلة",
+
+  "notAvailable": "غير متوفر",
+  "distanceAway": "يبعد {{distance}} كم",
+  "experience": "الخبرة",
+  "years": "سنوات",
+  "startingPrice": "السعر الابتدائي"
+
+
+}
