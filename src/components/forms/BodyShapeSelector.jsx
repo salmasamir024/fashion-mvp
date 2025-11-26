@@ -1,11 +1,16 @@
 // src/components/forms/BodyShapeSelector.jsx
 import React, { useEffect, useState } from "react";
 
+import hourglassImg from "../../assets/images/BodyMeasurment/Hourglass.png";
+import pearImg from "../../assets/images/BodyMeasurment/Pear.png";
+import rectangleImg from "../../assets/images/BodyMeasurment/Rectangle.png";
+import invertedTriangleImg from "../../assets/images/BodyMeasurment/Inverted Triangle.png";
+
 const shapeImages = {
-  hourglass: "src/assets/images/BodyMeasurment/Hourglass.png",
-  pear: "src/assets/images/BodyMeasurment/Pear.png",
-  rectangle: "src/assets/images/BodyMeasurment/Rectangle.png",
-  invertedTriangle: "src/assets/images/BodyMeasurment/Inverted Triangle.png",
+  hourglass: hourglassImg,
+  pear: pearImg,
+  rectangle: rectangleImg,
+  invertedTriangle: invertedTriangleImg,
 };
 
 export default function BodyShapeSlider({ value, onChange }) {
