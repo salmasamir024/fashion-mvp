@@ -11,7 +11,7 @@
         "name": "Camel",
         "hex": "#c9986e",
         "skinTones": ["tone1", "tone3"],
-        "image": "public/image/Hourglass/Dress Formal Camel.jpg",
+        "image": "/image/Hourglass/Dress Formal Camel.jpg",
         "availableSizes": [
           {
             "size": "S",
@@ -31,7 +31,7 @@
         "name": "Burgundy",
         "hex": "#800020",
         "skinTones": ["tone1", "tone2"],
-        "image": "public/image/Hourglass/Dress Formal Burgandy.jpg",
+        "image": "/image/Hourglass/Dress Formal Burgandy.jpg",
         "availableSizes": [
           {
             "size": "M",
@@ -61,7 +61,7 @@
         "name": "White",
         "hex": "#fff8f0",
         "skinTones": ["tone1", "tone2"],
-        "image": "public/image/Hourglass/Dress Evening White.jpg",
+        "image": "/image/Hourglass/Dress Evening White.jpg",
         "availableSizes": [
           {
             "size": "M",
@@ -81,7 +81,7 @@
         "name": "Sky Blue",
         "hex": "#87CEEB",
         "skinTones": ["tone1", "tone4"],
-        "image": "public/image/Hourglass/Dress Evening White.jpg",
+        "image": "/image/Hourglass/Dress Evening White.jpg",
         "availableSizes": [
           {
             "size": "L",
@@ -111,7 +111,7 @@
         "name": "Powder Pink",
         "hex": "#FFD1DC",
         "skinTones": ["tone2", "tone3"],
-        "image": "public/image/Hourglass/Dress Suit Formal powderpink.jpg",
+        "image": "/image/Hourglass/Dress Suit Formal powderpink.jpg",
         "availableSizes": [
           {
             "size": "S",
@@ -131,7 +131,7 @@
         "name": "Royal Blue",
         "hex": "#4169E1",
         "skinTones": ["tone2", "tone3"],
-        "image": "public/image/design3-royalblue.jpg",
+        "image": "/image/design3-royalblue.jpg",
         "availableSizes": [
           {
             "size": "L",
@@ -151,7 +151,7 @@
         "name": "Emerald Green",
         "hex": "#50C878",
         "skinTones": ["tone3"],
-        "image": "public/image/design3-emerald.jpg",
+        "image": "/image/design3-emerald.jpg",
         "availableSizes": [
           {
             "size": "XL",
