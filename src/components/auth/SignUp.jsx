@@ -1,10 +1,13 @@
 // src/components/auth/SignUp.jsx
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Input from "../ui/Input";
 import Button from "../ui/Button";
 import { Link } from "react-router-dom";
 
 export default function SignUp({ onSignUp }) {
+  const navigate = useNavigate(); // إضافة الـ hook
+
   const [form, setForm] = useState({
     email: "",
     password: "",
@@ -52,7 +55,11 @@ export default function SignUp({ onSignUp }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validate()) {
+      // لو عندك onSignUp من الأب
       onSignUp && onSignUp(form);
+
+      // بعد تسجيل المستخدم نوجهه مباشرة
+      navigate("/profile"); // هنا تقدر تغيّري المسار حسب المطلوب
     }
   };
 
@@ -89,9 +96,7 @@ export default function SignUp({ onSignUp }) {
             Service Provider
           </label>
         </div>
-        {errors.role && (
-          <p className="text-red-500 text-sm">{errors.role}</p>
-        )}
+        {errors.role && <p className="text-red-500 text-sm">{errors.role}</p>}
       </div>
 
       {/* Email */}
