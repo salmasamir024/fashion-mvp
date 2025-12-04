@@ -4,8 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 import useUserLocation from "../hooks/useUserLocation";
 import { Sparkle, Scissors, ShoppingBag } from "lucide-react";
 import ThemeToggle from "../components/ui/ThemeToggle"; // إضافة زر التبديل
+import Footer from "../components/ui/Footer";
 import logo from "../assets/images/Neferet.png";
-
 
 export default function Home() {
   const navigate = useNavigate();
@@ -18,7 +18,6 @@ export default function Home() {
 
   return (
     <div className="min-h-screen rounded-lg bg-var(--color-bg) text-var(--color-text) overflow-hidden transition-colors duration-300">
-
       {/* Hero Section */}
       <section className="relative w-full max-w-6xl mx-auto pt-24 pb-32 px-6">
         {/* Background decorative glow */}
@@ -86,7 +85,9 @@ export default function Home() {
             <p className="text-var(--color-text-light) text-sm mb-2">
               Find tailors, upload your designs, and get custom fits.
             </p>
-            {loading && <p className="text-var(--color-primary) text-sm">Locating you…</p>}
+            {loading && (
+              <p className="text-var(--color-primary) text-sm">Locating you…</p>
+            )}
             {error && <p className="text-red-500 text-sm">{error}</p>}
           </button>
 
@@ -103,6 +104,7 @@ export default function Home() {
           </Link>
         </div>
       </section>
+      <Footer />
     </div>
   );
 }

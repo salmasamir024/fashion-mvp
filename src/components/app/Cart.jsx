@@ -1,32 +1,30 @@
 // src/components/app/Cart.jsx
 import React from "react";
-import Button from "../ui/Button";
+import { useNavigate } from "react-router-dom";
+import { useCart } from "../../context/CartContext";
 
-export default function Cart({ items = [], onCheckout }) {
-  const total = items.reduce((acc, i) => acc + i.price * i.quantity, 0);
+export default function CartIcon({ className = "" }) {
+  const { totalItems } = useCart();
+  const navigate = useNavigate();
 
   return (
-    <div className="p-4 border rounded-md flex flex-col gap-4">
-      <h3 className="font-semibold text-lg">Cart</h3>
-      {items.length === 0 ? (
-        <div className="text-gray-500">Your cart is empty.</div>
-      ) : (
-        <>
-          <ul className="flex flex-col gap-2">
-            {items.map((item, idx) => (
-              <li key={idx} className="flex justify-between">
-                <span>{item.name} x {item.quantity}</span>
-                <span>${item.price * item.quantity}</span>
-              </li>
-            ))}
-          </ul>
-          <div className="flex justify-between font-semibold">
-            <span>Total:</span>
-            <span>${total}</span>
-          </div>
-          <Button onClick={onCheckout} variant="primary">Checkout</Button>
-        </>
+    <button
+      onClick={() => navigate("/cart")}
+      className={`relative inline-flex items-center gap-2 px-3 py-1 rounded-md ${className}`}
+      aria-label="Open cart"
+    >
+      {/* simple cart svg */}
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden>
+        <path d="M3 3h2l1.4 8h11.2l1.4-6H6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <circle cx="10" cy="20" r="1" fill="currentColor"/>
+        <circle cx="18" cy="20" r="1" fill="currentColor"/>
+      </svg>
+
+      {totalItems > 0 && (
+        <span className="absolute -top-2 -right-2 inline-flex items-center justify-center px-2 py-1 text-xs font-semibold rounded-full bg-red-600 text-white">
+          {totalItems}
+        </span>
       )}
-    </div>
+    </button>
   );
 }

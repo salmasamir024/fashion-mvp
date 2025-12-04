@@ -33,6 +33,7 @@ export default function ProfilePage() {
       {/* Shared sections */}
       {data.portfolio && <PortfolioGrid items={data.portfolio} />}
       {data.reviews && <Reviews reviews={data.reviews} />}
+      
     </div>
   );
 }

@@ -6,6 +6,7 @@
     "suitableShapes": ["hourglass", "pear"],
     "occasions": ["Evening", "Formal"],
     "skinTones": ["tone2", "tone3"],
+    "defaultImage": "/image/Hourglass/Dress Formal Camel.jpg",
     "availableColors": [
       {
         "name": "Camel",
@@ -56,6 +57,7 @@
     "suitableShapes": ["hourglass", "inverted"],
     "occasions": ["Party", "Evening"],
     "skinTones": ["tone1", "tone2", "tone4"],
+        "defaultImage": "/image/Hourglass/Dress Evening White.jpg",
     "availableColors": [
       {
         "name": "White",
@@ -106,6 +108,7 @@
     "suitableShapes": ["hourglass"],
     "occasions": ["Evening", "Formal"],
     "skinTones": ["tone2", "tone3"],
+    "defaultImage": "/image/Hourglass/Dress Suit Formal powderpink.jpg",
     "availableColors": [
       {
         "name": "Powder Pink",

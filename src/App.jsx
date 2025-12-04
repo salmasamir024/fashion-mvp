@@ -21,6 +21,11 @@ import DesignDetailsPage from "./components/services/designs/DesignDetailsPage";
 import TailorsPage from "./pages/TailorsPage";
 import ProfilePage from "./components/services/tailors/ProfilePage";
 
+import CartPage from "./pages/CartPage";
+import CheckoutPage from "./pages/CheckoutPage";
+import OrderDetails from "./components/orders/OrderDetails";
+import OrdersList from "./components/orders/OrdersList";
+
 // import TailorProfilePage from "./pages/TailorProfilePage";
 // import StorePage from "./pages/StorePage";
 
@@ -89,54 +94,59 @@ export default function App() {
   };
 
   return (
-      <Router>
-        <div className="min-h-screen bg-gray-50">
-          {/* ------- NAVBAR ------- */}
-          <Navbar
-            userProfile={userProfile}
-            onOpenMenu={() => console.log("Open mobile menu")}
-            onToggleLang={handleToggleLang}
-          />
+    <Router>
+      <div className="min-h-screen bg-gray-50">
+        {/* ------- NAVBAR ------- */}
+        <Navbar
+          userProfile={userProfile}
+          onOpenMenu={() => console.log("Open mobile menu")}
+          onToggleLang={handleToggleLang}
+        />
 
-          {/* ------- PAGES ROUTING ------- */}
-          <div className="p-6">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route
-                path="/signup"
-                element={<SignUp onSignUp={handleSignUp} />}
-              />
-              <Route path="/login" element={<Login onLogin={handleLogin} />} />
+        {/* ------- PAGES ROUTING ------- */}
+        <div className="p-6">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route
+              path="/signup"
+              element={<SignUp onSignUp={handleSignUp} />}
+            />
+            <Route path="/login" element={<Login onLogin={handleLogin} />} />
 
-              <Route
-                path="/profile"
-                element={
-                  <Profile
-                    userProfile={userProfile}
-                    updateUserProfile={updateUserProfile}
-                  />
-                }
-              />
-              <Route
-                path="/update-measurements"
-                element={<UpdateMeasurements />}
-              />
-              <Route path="/edit-profile" element={<EditProfile />} />
+            <Route
+              path="/profile"
+              element={
+                <Profile
+                  userProfile={userProfile}
+                  updateUserProfile={updateUserProfile}
+                />
+              }
+            />
+            <Route
+              path="/update-measurements"
+              element={<UpdateMeasurements />}
+            />
+            <Route path="/edit-profile" element={<EditProfile />} />
+            <Route path="/orders/:id" element={<OrderDetails />} />
+            <Route path="/orders" element={<OrdersList />} />        // يمكن أن يعيد OrdersList مع maxPreview=null
 
-              <Route
-                path="/recommendations"
-                element={<Recommendations userProfile={userProfile} />}
-              />
-              <Route path="/design-details" element={<DesignDetailsPage />} />
 
-              {/* تقدر تضيفي صفحات لاحقًا */}
-              <Route path="/tailors" element={<TailorsPage />} />
-              <Route path="/profile/:type/:id" element={<ProfilePage />} />
-              {/* <Route path="/tailor/:id" element={<TailorProfilePage />} /> */}
-              {/* <Route path="/store" element={<StorePage />} /> */}
-            </Routes>
-          </div>
+            <Route
+              path="/recommendations"
+              element={<Recommendations userProfile={userProfile} />}
+            />
+            <Route path="/design-details" element={<DesignDetailsPage />} />
+            <Route path="/cart" element={<CartPage />} />
+            <Route path="/checkout" element={<CheckoutPage />} />
+
+            {/* تقدر تضيفي صفحات لاحقًا */}
+            <Route path="/tailors" element={<TailorsPage />} />
+            <Route path="/profile/:type/:id" element={<ProfilePage />} />
+            {/* <Route path="/tailor/:id" element={<TailorProfilePage />} /> */}
+            {/* <Route path="/store" element={<StorePage />} /> */}
+          </Routes>
         </div>
-      </Router>
+      </div>
+    </Router>
   );
 }

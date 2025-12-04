@@ -30,9 +30,9 @@ export default function DesignCard({ design, userProfile }) {
         style={{ height: 220, background: "#eee" }}
         className="rounded-md relative"
       >
-        {design.image && (
+        {design.defaultImage && (
           <img
-            src={design.availableColors?.[0]?.image || design.image}
+            src={design.availableColors?.[0]?.image || design.defaultImage}
             alt={design.title}
             className="w-full h-full object-cover rounded-md"
           />

@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import Card from "../components/ui/Card";
 import Button from "../components/ui/Button";
 import SizeRecommendationBadge from "../components/services/designs/SizeRecommendationBadge";
+import OrdersList from "../components/orders/OrdersList";
 
 export default function Profile() {
   const navigate = useNavigate();
@@ -34,14 +35,25 @@ export default function Profile() {
           {t("noMeasurements")}
         </p>
 
-        <Button variant="primary" onClick={() => navigate("/update-measurements")}>
+        <Button
+          variant="primary"
+          onClick={() => navigate("/update-measurements")}
+        >
           {t("addMeasurements")}
         </Button>
       </div>
     );
 
-  const { measurements, bodyShape, selectedShape, skinTone, palette, occasions, favorites, orders } =
-    userProfile;
+  const {
+    measurements,
+    bodyShape,
+    selectedShape,
+    skinTone,
+    palette,
+    occasions,
+    favorites,
+    orders,
+  } = userProfile;
 
   return (
     <div
@@ -57,7 +69,9 @@ export default function Profile() {
       <Card className="space-y-3 bg-[var(--color-card)] text-[var(--color-text)]">
         <div className="flex justify-between items-center">
           <div>
-            <h2 className="font-semibold text-lg">{userProfile.name || t("userName")}</h2>
+            <h2 className="font-semibold text-lg">
+              {userProfile.name || t("userName")}
+            </h2>
             <p className="text-sm text-[var(--color-text-light)]">
               {userProfile.email || t("email")}
             </p>
@@ -83,15 +97,30 @@ export default function Profile() {
         <h2 className="text-lg font-semibold">{t("bodyMeasurements")}</h2>
 
         <div className="grid grid-cols-2 gap-2 text-sm">
-          <p>{t("height")}: {measurements?.height || "N/A"} cm</p>
-          <p>{t("weight")}: {measurements?.weight || "N/A"} kg</p>
-          <p>{t("shoulders")}: {measurements?.shoulders || "N/A"} cm</p>
-          <p>{t("bust")}: {measurements?.bust || "N/A"} cm</p>
-          <p>{t("waist")}: {measurements?.waist || "N/A"} cm</p>
-          <p>{t("hips")}: {measurements?.hips || "N/A"} cm</p>
+          <p>
+            {t("height")}: {measurements?.height || "N/A"} cm
+          </p>
+          <p>
+            {t("weight")}: {measurements?.weight || "N/A"} kg
+          </p>
+          <p>
+            {t("shoulders")}: {measurements?.shoulders || "N/A"} cm
+          </p>
+          <p>
+            {t("bust")}: {measurements?.bust || "N/A"} cm
+          </p>
+          <p>
+            {t("waist")}: {measurements?.waist || "N/A"} cm
+          </p>
+          <p>
+            {t("hips")}: {measurements?.hips || "N/A"} cm
+          </p>
         </div>
 
-        <Button variant="secondary" onClick={() => navigate("/update-measurements")}>
+        <Button
+          variant="secondary"
+          onClick={() => navigate("/update-measurements")}
+        >
           {t("updateMeasurements")}
         </Button>
       </Card>
@@ -117,13 +146,15 @@ export default function Profile() {
         <h2 className="text-lg font-semibold mb-2">{t("colorPalette")}</h2>
 
         <div className="flex gap-3">
-          {(palette || ["#2e3d55", "#446c35", "#7d1f21", "#c9925a"]).map((c, i) => (
-            <div
-              key={i}
-              className="w-8 h-8 rounded-full border border-[var(--color-border)]"
-              style={{ background: c }}
-            />
-          ))}
+          {(palette || ["#2e3d55", "#446c35", "#7d1f21", "#c9925a"]).map(
+            (c, i) => (
+              <div
+                key={i}
+                className="w-8 h-8 rounded-full border border-[var(--color-border)]"
+                style={{ background: c }}
+              />
+            )
+          )}
         </div>
       </Card>
 
@@ -163,10 +194,15 @@ export default function Profile() {
         <div className="flex gap-2 overflow-x-auto">
           {(favorites?.designs || []).length ? (
             favorites.designs.map((_, i) => (
-              <div key={i} className="w-20 h-28 bg-[var(--color-chip)] rounded-md"></div>
+              <div
+                key={i}
+                className="w-20 h-28 bg-[var(--color-chip)] rounded-md"
+              ></div>
             ))
           ) : (
-            <p className="text-sm text-[var(--color-text-light)]">{t("noFavorites")}</p>
+            <p className="text-sm text-[var(--color-text-light)]">
+              {t("noFavorites")}
+            </p>
           )}
         </div>
 
@@ -174,32 +210,21 @@ export default function Profile() {
         <div className="flex gap-2 overflow-x-auto">
           {(favorites?.tailors || []).length ? (
             favorites.tailors.map((_, i) => (
-              <div key={i} className="w-20 h-20 bg-[var(--color-chip)] rounded-md"></div>
+              <div
+                key={i}
+                className="w-20 h-20 bg-[var(--color-chip)] rounded-md"
+              ></div>
             ))
           ) : (
-            <p className="text-sm text-[var(--color-text-light)]">{t("noFavorites")}</p>
+            <p className="text-sm text-[var(--color-text-light)]">
+              {t("noFavorites")}
+            </p>
           )}
         </div>
       </Card>
 
       {/* ORDERS */}
-      <Card className="space-y-2 bg-[var(--color-card)] text-[var(--color-text)]">
-        <h2 className="text-lg font-semibold">{t("orders")}</h2>
-
-        <h3 className="font-semibold text-sm">{t("inProgress")}</h3>
-        <div className="flex gap-2">
-          {(orders?.inProgress || []).map((_, i) => (
-            <div key={i} className="w-24 h-28 bg-[var(--color-chip)] rounded-md"></div>
-          ))}
-        </div>
-
-        <h3 className="font-semibold text-sm">{t("completed")}</h3>
-        <div className="flex gap-2">
-          {(orders?.completed || []).map((_, i) => (
-            <div key={i} className="w-24 h-28 bg-[var(--color-chip)] rounded-md"></div>
-          ))}
-        </div>
-      </Card>
+      <OrdersList maxPreview={5} />
 
       {/* LOGOUT */}
       <Button

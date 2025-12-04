@@ -1,12 +1,15 @@
+// src/components/Navbar.jsx
 import React from "react";
 import { Link } from "react-router-dom";
 import { Menu, ShoppingCart, User, LogIn, Globe, X } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import ThemeToggle from "./ThemeToggle";
+import { useCart } from "../../context/CartContext"; // <-- تأكد المسار صحيح
 
 export default function Navbar({ userProfile }) {
   const [open, setOpen] = React.useState(false);
   const { t, i18n } = useTranslation();
+  const { totalItems } = useCart();
 
   const isLoggedIn = !!userProfile?.email;
 
@@ -30,9 +33,20 @@ export default function Navbar({ userProfile }) {
           <ThemeToggle />
 
           {/* Cart */}
-          <Link to="/cart" className="flex items-center gap-1 text-gray-700 hover:text-primary">
+          <Link to="/cart" className="relative flex items-center gap-1 text-gray-700 hover:text-primary">
             <ShoppingCart size={20} />
             <span className="font-medium">{t("cart")}</span>
+
+            {/* badge */}
+            {totalItems > 0 && (
+              <span
+                aria-live="polite"
+                className="absolute -top-2 -right-2 inline-flex items-center justify-center px-2 py-0.5 text-xs font-semibold rounded-full bg-red-600 text-white"
+                title={`${totalItems} ${t("itemsInCart") || "items"}`}
+              >
+                {totalItems}
+              </span>
+            )}
           </Link>
 
           {/* Login / Profile */}
@@ -78,9 +92,22 @@ export default function Navbar({ userProfile }) {
             <ThemeToggle closeMenu={() => setOpen(false)} />
 
             {/* Cart */}
-            <Link to="/cart" onClick={() => setOpen(false)} className="flex items-center gap-2 text-gray-700 text-lg">
+            <Link
+              to="/cart"
+              onClick={() => setOpen(false)}
+              className="relative flex items-center gap-2 text-gray-700 text-lg"
+            >
               <ShoppingCart size={22} />
-              {t("cart")}
+              <span>{t("cart")}</span>
+
+              {totalItems > 0 && (
+                <span
+                  className="absolute -top-2 -right-3 inline-flex items-center justify-center px-2 py-0.5 text-xs font-semibold rounded-full bg-red-600 text-white"
+                  title={`${totalItems} ${t("itemsInCart") || "items"}`}
+                >
+                  {totalItems}
+                </span>
+              )}
             </Link>
 
             {/* Login / Profile */}

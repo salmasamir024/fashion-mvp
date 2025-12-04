@@ -3,12 +3,16 @@ import React, { useState, useEffect, useMemo } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import SkinToneSelector from "../../forms/SkinToneSelector";
+import { useCart } from "../../../context/CartContext"; // تأكد المسار
+
 
 export default function DesignDetailsPage() {
   const location = useLocation();
   const navigate = useNavigate();
   const { t, i18n } = useTranslation();
   const isArabic = i18n.language === "ar";
+
+  const { addItem } = useCart();
 
   const { design, userProfile } = location.state || {};
 
@@ -18,24 +22,31 @@ export default function DesignDetailsPage() {
   const [recommendedSize, setRecommendedSize] = useState(null);
   const [quantity, setQuantity] = useState(1);
 
+  // flag to know if user explicitly selected a color (click) — only then change image away from default
+  const [userSelectedColor, setUserSelectedColor] = useState(false);
+
   useEffect(() => {
     if (!design || !userProfile?.measurements) return;
 
     const rec = calculateSizeFromProfile(userProfile);
     setRecommendedSize(rec);
 
+    // pick a "best" color to preselect (but we won't show its image until user interacts)
     const bestColor =
       design.availableColors?.find((c) =>
         c.skinTones?.includes(userProfile.skinTone)
       ) || design.availableColors?.[0];
 
-    setSelectedColor(bestColor);
+    setSelectedColor(bestColor || null);
 
     const defaultSize =
-      bestColor.availableSizes.find((s) => s.size === rec && s.stock > 0)?.size ||
-      bestColor.availableSizes[0].size;
+      bestColor?.availableSizes?.find((s) => s.size === rec && s.stock > 0)?.size ||
+      bestColor?.availableSizes?.[0]?.size ||
+      null;
     setSelectedSize(defaultSize);
     setQuantity(1);
+    // do not set userSelectedColor here — keep showing default image until user clicks
+    setUserSelectedColor(false);
   }, [design, userProfile]);
 
   const filteredColors = useMemo(() => {
@@ -52,25 +63,34 @@ export default function DesignDetailsPage() {
 
   const maxQuantity = selectedSizeObj?.stock || 0;
 
-  const handleAddToCart = () => {
-    if (!selectedSize || !selectedColor) {
-      alert(t("chooseSizeColor"));
-      return;
-    }
+const handleAddToCart = () => {
+  if (!selectedSize || !selectedColor) {
+    alert(t("chooseSizeColor"));
+    return;
+  }
 
-    if (quantity > selectedSizeObj.stock) {
-      alert(t("quantityExceedsStock", { stock: selectedSizeObj.stock }));
-      return;
-    }
+  if (quantity > selectedSizeObj.stock) {
+    alert(t("quantityExceedsStock", { stock: selectedSizeObj.stock }));
+    return;
+  }
 
-    alert(t("addedToCart", {
-      title: design.title,
-      color: selectedColor.name,
-      size: selectedSize,
-      quantity,
-      price: selectedSizeObj.price * quantity
-    }));
-  };
+  addItem({
+    design,
+    color: selectedColor,
+    size: selectedSize,
+    quantity,
+    pricePerUnit: selectedSizeObj.price,
+  });
+
+  // feedback للمستخدم
+  alert(t("addedToCart", {
+    title: design.title,
+    color: selectedColor.name,
+    size: selectedSize,
+    quantity,
+    price: selectedSizeObj.price * quantity
+  }));
+};
 
   if (!design) {
     return (
@@ -86,6 +106,40 @@ export default function DesignDetailsPage() {
     );
   }
 
+  // Helper: determine image URL for a given color (supports multiple shapes of data)
+  function getImageForColor(designObj, colorObj) {
+    if (!colorObj && !designObj) return null;
+
+    // 1) color.image (existing data shape)
+    if (colorObj?.image) return colorObj.image;
+
+    // 2) color.imagesByColor (e.g. { "red": "...", "black": "..." }) — check by color name (lowercase) or hex
+    if (colorObj?.imagesByColor) {
+      // try exact match of color name
+      const keyName = (colorObj.name || "").toLowerCase();
+      if (colorObj.imagesByColor[keyName]) return colorObj.imagesByColor[keyName];
+      // try hex as key
+      if (colorObj.hex && colorObj.imagesByColor[colorObj.hex]) return colorObj.imagesByColor[colorObj.hex];
+    }
+
+    // 3) design.imagesByColor mapping (global mapping on design), keys might be color names
+    if (designObj?.imagesByColor) {
+      const keyName = (colorObj?.name || "").toLowerCase();
+      if (designObj.imagesByColor[keyName]) return designObj.imagesByColor[keyName];
+      // maybe mapping uses original color name case:
+      if (designObj.imagesByColor[colorObj?.name]) return designObj.imagesByColor[colorObj.name];
+      // try hex
+      if (colorObj?.hex && designObj.imagesByColor[colorObj.hex]) return designObj.imagesByColor[colorObj.hex];
+    }
+
+    return null;
+  }
+
+  // Image to display: defaultImage unless user explicitly selected a color — then use color image (with fallbacks)
+  const imageToShow = userSelectedColor
+    ? (getImageForColor(design, selectedColor) || design.defaultImage)
+    : design.defaultImage;
+
   return (
     <div className={`p-6 space-y-6 max-w-4xl mx-auto ${isArabic ? "rtl" : "ltr"}`}>
       <button
@@ -98,10 +152,10 @@ export default function DesignDetailsPage() {
       <h1 className="text-2xl font-bold">{design.title}</h1>
       <p className="text-gray-600">{t("fabric")}: {design.fabric}</p>
 
-      {selectedColor?.image ? (
+      {imageToShow ? (
         <img
-          src={selectedColor.image}
-          alt={`${design.title} - ${selectedColor.name}`}
+          src={imageToShow}
+          alt={`${design.title} ${selectedColor ? `- ${selectedColor.name}` : ""}`}
           className="w-full max-h-[450px] object-cover rounded-md mt-4"
         />
       ) : (
@@ -125,9 +179,12 @@ export default function DesignDetailsPage() {
               key={color.name}
               onClick={() => {
                 setSelectedColor(color);
+                // mark as user interaction so image switches to color image
+                setUserSelectedColor(true);
+
                 const defaultSize =
                   color.availableSizes.find((s) => s.size === recommendedSize && s.stock > 0)?.size ||
-                  color.availableSizes[0].size;
+                  color.availableSizes[0]?.size;
                 setSelectedSize(defaultSize);
                 setQuantity(1);
               }}
